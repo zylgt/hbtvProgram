@@ -1,54 +1,72 @@
 // index.js
 // 获取应用实例
 const app = getApp()
-
+var http = require('../../utils/http.js');
+var api = require('../../API/api.js');
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    bgFlag:false,
+    focusIndex:0,
+    focus:[],
+    choose:false,
+    list:[]
   },
   onLoad() {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+    var that = this
+    wx.login({
+      success:function(res){
+          console.log(res.code)
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
+    })
+    wx.getSystemInfo({
+      success (res) {
+        if(res.windowHeight>667){
+          that.setData({
+            bgFlag:true
           })
         }
-      })
-    }
-  },
-  getUserInfo(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      }
     })
-  }
+    http.request(api.getNav,'POST').then((response)=>{
+        if(response.data.code == 1 ){  
+            response.data.msg.unshift({'id':0,'text':'全部'})
+            this.setData({
+                focus:response.data.msg
+            })
+        }
+    }).catch(()=>{})
+    this.getList('')
+  },
+  nextName:function(){
+    wx.navigateTo({
+      url: '../list/list',
+    })
+  },
+      // 菜单选择
+      focusChange:function(e){
+        this.setData({
+            choose:true,
+            focusIndex:e.detail.value
+        })
+        let val = this.data.focus[e.detail.value].id
+        if(val == 0){
+            val= ''
+        }
+        this.getList(val)
+    },
+    // 获取列表
+    getList:function(val){
+        http.request(api.getTeachers,'POST',{'domain':val}).then((response)=>{
+            if(response.data.code == 1 ){  
+                this.setData({
+                    list:response.data.msg
+                })
+            }
+        }).catch(()=>{})
+    },
+    detailName:function(){
+        wx.navigateTo({
+          url: '../teachers/teachers',
+        })
+    }
 })

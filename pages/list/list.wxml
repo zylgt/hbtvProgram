@@ -1,0 +1,34 @@
+<!--pages/list/list.wxml-->
+<view class='box1' >
+    <view class='top'>
+        <image src='../../images/home_bg.png' class='home_bg' mode='widthFix' ></image>
+        <image src='../../images/logo.png' class='logo' ></image>
+        <view class='page2_cont'>
+            <image src='../../images/text_bg.png' class='text_bg' ></image>
+            <view class='cont_text'>
+                新的一年，你对生活有哪些新期待？更好的医疗保障？更美的生活环境？……2021年湖北省两会期间，“我在长江云 两会帮你问”互动小程序上线，代表委员进驻，快来跟他们一起聊聊你最关心的话题吧！
+            </view>
+        </view>
+    </view>
+    <view class='nav'>
+        <image src='../../images/nav_bg.png'  class='nav_bg' ></image>
+        <view class='nav_box'>
+            <view class='focus'>关注领域：</view>
+            <picker bindchange="focusChange" value="{{focusIndex}}" class='select' range='{{focus}}' range-key='text' >
+                <view class="picker" wx:if='{{choose}}' >
+                    {{focus[focusIndex].text}}
+                </view>
+                <view class="picker" wx:else >
+                    请选择
+                </view>
+                <image src="../../images/la_img.png" alt="" class='la_img' ></image>
+            </picker>
+        </view>
+      
+    </view>
+    <view class='list' >
+        <view class='list_item'  wx:for='{{list}}' wx:key='index' bindtap="detailName"  >
+            <image src='{{item.small_url}}'  class='img_cont' mode='widthFix' ></image>
+        </view>
+    </view>
+</view>

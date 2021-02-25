@@ -1,0 +1,25 @@
+<!--pages/communicate/communicate.wxml-->
+<video src="http://ykugc.cp31.ott.cibntv.net/6774A7EA4204471CA6A042057/03000A01005EA55EDC163932CC80C09AC730E6-7060-4482-AA14-43005B84E8A8.mp4?ccode=0512&duration=282&expire=18000&psid=3c72d163a252a5e796290dca13e1728f43661&ups_client_netip=3c1daba2&ups_ts=1614230789&ups_userid=&utid=zzSDF6H5hiUCATwdq6LsBqhm&vid=XNDY0OTMzODI1Mg&vkey=B4d9df1e5026e99df6fa78e4e63e46b2e&eo=0&t=7a923d2db003ca2&rid=2000000093F10BC457BFF71B7F84FD227596F0FA02000000&type=mp4sd&bc=2&dre=u21&si=42&dst=1" class='video' ></video>
+
+<view class='' >
+<swiper class='swiper' display-multiple-items='2' autoplay='{{true}}' vertical='{{true}}' circular='{{true}}' easing-function='linear' >
+    <swiper-item class='swiper_item'>
+        好的吧会不会嗨不好好
+    </swiper-item>
+    <swiper-item class='swiper_item'>
+        结哈哈哈哈哈或
+    </swiper-item>
+    <swiper-item class='swiper_item'>
+        各行部是还搞不好VB后半部分康复科 
+    </swiper-item>
+    <swiper-item class='swiper_item'>
+        好的吧会不会嗨不好好
+    </swiper-item>
+    <swiper-item class='swiper_item'>
+        结哈哈哈哈哈或
+    </swiper-item>
+    <swiper-item class='swiper_item'>
+        各行部是还搞不好VB后半部分康复科 
+    </swiper-item>
+</swiper>
+</view>

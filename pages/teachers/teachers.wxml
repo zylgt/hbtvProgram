@@ -1,0 +1,2 @@
+<!--pages/teachers/teachers.wxml-->
+<image src='../../images/people.png'  class='teacher_img' mode='widthFix' ></image>

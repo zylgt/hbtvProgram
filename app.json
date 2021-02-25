@@ -1,6 +1,10 @@
 {
   "pages":[
-    "pages/index/index"
+    "pages/index/index",
+    "pages/list/list",
+    "pages/teachers/teachers",
+    "pages/communicate/communicate"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
