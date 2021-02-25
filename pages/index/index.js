@@ -1,6 +1,7 @@
 // index.js
 // 获取应用实例
 const app = getApp()
+
 var http = require('../../utils/http.js');
 var api = require('../../API/api.js');
 Page({
