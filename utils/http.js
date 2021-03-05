@@ -23,6 +23,7 @@ function request(url, method = "GET", data = {}) {
               method: method,
               header: {
                 'Content-Type': 'application/json',
+                'XCJCloudMeetingToken': wx.getStorageSync('token')
               },
               timeout:'80000',
               success: function(res) {

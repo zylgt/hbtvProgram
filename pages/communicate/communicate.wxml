@@ -1,25 +1,104 @@
-<!--pages/communicate/communicate.wxml-->
-<video src="http://ykugc.cp31.ott.cibntv.net/6774A7EA4204471CA6A042057/03000A01005EA55EDC163932CC80C09AC730E6-7060-4482-AA14-43005B84E8A8.mp4?ccode=0512&duration=282&expire=18000&psid=3c72d163a252a5e796290dca13e1728f43661&ups_client_netip=3c1daba2&ups_ts=1614230789&ups_userid=&utid=zzSDF6H5hiUCATwdq6LsBqhm&vid=XNDY0OTMzODI1Mg&vkey=B4d9df1e5026e99df6fa78e4e63e46b2e&eo=0&t=7a923d2db003ca2&rid=2000000093F10BC457BFF71B7F84FD227596F0FA02000000&type=mp4sd&bc=2&dre=u21&si=42&dst=1" class='video' ></video>
+<view class='cont'>
+    <image src='../../images/detail_img.png' class='top_img' mode='widthFix' ></image>
+    <view class='video_box'>
+        <image src='../../images/detail_video.png' class='video_img' ></image>
+        <video src="https://sn-1302663429.cos.ap-beijing.myqcloud.com/video/%E6%B5%8B%E8%AF%95%E7%94%A8.mp4" class='video' id='myVideo' autoplay='{{play}}' bindpause='pauseName' show-center-play-btn='{{false}}' ></video>
+        <image src='../../images/play_icon.png' class='play_icon' bindtap="playName" wx:if='{{!play}}' ></image>
+    </view>
+    <view class='title_box'>
+        <view class='title'>
+            <image src='../../images/detail_title.png' class='title_bg'></image>
+            <text class='title_text' >热门问答</text>
+        </view>
+        <image src='../../images/la_img.png' class='la_img' ></image>
+    </view>
+    <view class='info'>
+        我是全国人大代表XXX，我的“长江云问吧”小程序上线了，关注全国两会，欢迎你来提问！
+    </view>
+    <view class='talk_list' >
+        <view class='talk_cont'>
+            <view class='talk_item'>
+                <image src='../../images/avatar.jpeg' class='avatar'  ></image>
+                <view class='talk_text' >
+                    <text class='talk_name'>我是一只鱼</text>
+                    <view class='talk_message'>
+                        @邹薇 您好，我想问一下：武汉大学经济与管理学院二级教授，博士生导师。湖北省政协常委省政府咨询委员。
+                    </view>
+                </view>
+            </view>
+            <view class='talk_item'>
+                <image src='../../images/avatar.jpeg' class='avatar'  ></image>
+                <view class='talk_text' >
+                    <text class='talk_name'>邹薇</text>
+                    <view class='talk_messages'>
+                        @我是一只鱼 我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='talk_list' >
+        <view class='talk_cont'>
+            <view class='talk_item'>
+                <image src='../../images/avatar.jpeg' class='avatar'  ></image>
+                <view class='talk_text' >
+                    <text class='talk_name'>我是一只鱼</text>
+                    <view class='talk_message'>
+                        @邹薇 您好，我想问一下：武汉大学经济与管理学院二级教授，博士生导师。湖北省政协常委省政府咨询委员。
+                    </view>
+                </view>
+            </view>
+            <view class='talk_item'>
+                <image src='../../images/avatar.jpeg' class='avatar'  ></image>
+                <view class='talk_text' >
+                    <text class='talk_name'>邹薇</text>
+                    <view class='talk_messages'>
+                        @我是一只鱼 我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。我的回答是：武汉大学经济与管理学院二级教授，博士生导师。
+                    </view>
+                </view>
+            </view>
+            <view class='talk_item'>
+                <image src='../../images/avatar.jpeg' class='avatar'  ></image>
+                <view class='talk_text' >
+                    <text class='talk_name'>我是一只鱼</text>
+                    <view class='talk_message'>
+                        @邹薇 您好，我想问一下：武汉大学经济与管理学院二级教授，博士生导师。湖北省政协常委省政府咨询委员。
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='title_box'>
+        <view class='title'>
+            <image src='../../images/detail_title.png' class='title_bg'></image>
+            <text class='title_text' >我要提问</text>
+        </view>
+        <image src='../../images/la_img.png' class='la_img' ></image>
+    </view>
+    <view class='info'>
+        关于社区治理，来问我吧！
+    </view>
+    <textarea name="" id="" placeholder="请输入您的问题"  placeholder-class="text_area" class='textarea' bindinput="textName" ></textarea>
+    <view class='submit' bindtap="submitName" >
+        <image src='../../images/detail_submit.png' class='submit_icon' ></image>
+        <text class='submit_text' >点击这里，提交问题</text>
+        <!-- <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='btn btns' bindtap="accountLogin" wx:if='{{nameFlag}}' ></button> -->
+    </view>
+    <view class='btm'>
+        <image src='../../images/company.png' class='btm_icon'></image>
+        <image src='../../images/company1.png' class='btm_icon1' ></image>
+    </view>
 
-<view class='' >
-<swiper class='swiper' display-multiple-items='2' autoplay='{{true}}' vertical='{{true}}' circular='{{true}}' easing-function='linear' >
-    <swiper-item class='swiper_item'>
-        好的吧会不会嗨不好好
-    </swiper-item>
-    <swiper-item class='swiper_item'>
-        结哈哈哈哈哈或
-    </swiper-item>
-    <swiper-item class='swiper_item'>
-        各行部是还搞不好VB后半部分康复科 
-    </swiper-item>
-    <swiper-item class='swiper_item'>
-        好的吧会不会嗨不好好
-    </swiper-item>
-    <swiper-item class='swiper_item'>
-        结哈哈哈哈哈或
-    </swiper-item>
-    <swiper-item class='swiper_item'>
-        各行部是还搞不好VB后半部分康复科 
-    </swiper-item>
-</swiper>
+    <view class='pos' bindtap="scrollName" >
+        <image src='../../images/ask.png'  class='ask_btn' ></image>
+    </view>
+
+    <view class='mask' bindtap="hideName" wx:if='{{toast}}' >
+        <view class='toask'>
+            <text class='mask_title'>感谢你的提问</text>
+            <text class='mask_title'>还请静待答复</text>
+            <text class='tips'>您还可以关注以下内容</text>
+            <view class='ask_other' catchtap="otherName" >向其它代表提问</view>
+        </view>
+    </view>
 </view>

@@ -1,2 +1,93 @@
 <!--pages/teachers/teachers.wxml-->
-<image src='../../images/people.png'  class='teacher_img' mode='widthFix' ></image>
+<swiper vertical='{{true}}'  easing-function='linear' class='swaperBox' >
+    <swiper-item>
+        <image src='{{info.big_url}}'  class='teacher_img' mode='widthFix' ></image>
+        <image src="../../images/next.png" alt="" class='next_img'  ></image>
+    </swiper-item>
+    <swiper-item class='swiper_item' >
+        <scroll-view scroll-y='{{true}}' class='scroll' scroll-into-view='{{scrollView}}' scroll-with-animation='{{true}}' >
+            <view class='cont'>
+                <image src='{{info.small_url}}' class='top_img' mode='widthFix' ></image>
+                <view class='video_box' wx:if='{{info.video_url}}' >
+                    <image src='../../images/detail_video.png' class='video_img' ></image>
+                    <video src="{{info.video_url}}" class='video' id='myVideo'  bindpause='pauseName' show-center-play-btn='{{false}}' bindfullscreenchange='fullName' ></video>
+                    <image src='../../images/detail_video.png' class='video_one' wx:if='{{play_img}}' ></image>
+                    <image src='../../images/play_icon.png' class='play_icon' bindtap="playName" wx:if='{{!play}}' ></image>
+                </view>
+                <view class='title_box' wx:if='{{talk.length>0}}'>
+                    <view class='title'>
+                        <image src='../../images/title1.png' class='title_bg' ></image>
+                    </view>
+                </view>
+                <view class='info' wx:if='{{talk.length>0}}' >
+                    我是全国{{info.type}}{{info.name}}，我的“长江云问吧”小程序上线了，关注全国两会，欢迎你来提问！
+                </view>
+                <view class='talk_list' wx:for='{{talk}}' wx:key='index'  >
+                    <view class='talk_cont'>
+                        <view class='talk_item'>
+                            <image src='{{item.head_url}}' class='avatar'  ></image>
+                            <view class='talk_text' >
+                                <text class='talk_name'>{{item.nickname}}</text>
+                                <view class='talk_message'>
+                                   <view>@{{info.name}} 您好，我想问一下：</view> 
+                                    {{item.question}}
+                                </view>
+                            </view>
+                        </view>
+                        <view class='talk_item'>
+                            <image src='{{info.code_url}}' class='avatar'  ></image>
+                            <view class='talk_text' >
+                                <text class='talk_name'>{{info.name}}</text>
+                                <view class='talk_messages'>
+                                    @{{item.nickname}} 我的回答是：
+                                    <rich-text nodes='{{item.answer}}' space='nbsp'></rich-text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class='talk_item' wx:if='{{item.feedback}}' >
+                            <image src='{{item.head_url}}' class='avatar'  ></image>
+                            <view class='talk_text' >
+                                <text class='talk_name'>{{item.nickname}}</text>
+                                <view class='talk_message'>
+                                   <view>@{{info.name}}  感谢您的回答：</view> {{item.feedback}}
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class='title_box title_boxs' id='askView'>
+                    <view class='title '>
+                        <image src='../../images/title2.png' class='title_bg' ></image>
+                    </view>
+                </view>
+                <view class='info infos'>
+                    我是全国{{info.type}}{{info.name}}，来问我吧！
+                    <!-- 关于{{info.domain_text}}，来问我吧！ -->
+                </view>
+                <textarea name="" id="" placeholder="请输入您的问题"  placeholder-class="text_area" class='textarea' bindinput="textName" value="{{ask_cont}}" disable-default-padding='{{true}}' ></textarea>
+                <view class='submit' bindtap="submitName" >
+                    <image src='../../images/detail_submit.png' class='submit_icon' ></image>
+                    <button open-type="getUserInfo"  size='default' bindgetuserinfo="bindGetUserInfo" class='btn btns' bindtap="accountLogin" wx:if='{{nameFlag}}' ></button>
+                </view>
+                <view class='btm'>
+                    <image src='../../images/company.png' class='btm_icon'></image>
+                    <image src='../../images/company1.png' class='btm_icon1' ></image>
+                </view>
+
+
+                <view class='mask' bindtap="hideName" wx:if='{{toast}}' >
+                    <view class='toask'>
+                        <image src='../../images/toask.png' class='toask_img' catchtap="otherName" ></image>
+                        <view class='close_box' bindtap="hideName">
+                            <image src='../../images/chahao.png' class='close_icon'> </image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <cover-view class='pos' bindtap="scrollName"  wx:if='{{posFlag}}' >
+            <cover-image src='../../images/ask.png'  class='ask_btn' ></cover-image>
+        </cover-view>
+    </swiper-item>
+</swiper>
+

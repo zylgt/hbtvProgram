@@ -10,10 +10,16 @@ Page({
     focusIndex:0,
     focus:[],
     choose:false,
-    list:[]
+    list:[],
+    current:0
   },
-  onLoad() {
+  onLoad(options) {
     var that = this
+    if(options.type==1){
+      this.setData({
+        current:1
+      })
+    }
     wx.login({
       success:function(res){
           console.log(res.code)
@@ -30,7 +36,7 @@ Page({
     })
     http.request(api.getNav,'POST').then((response)=>{
         if(response.data.code == 1 ){  
-            response.data.msg.unshift({'id':0,'text':'全部'})
+            response.data.msg.unshift({'domain':0,'text':'全部'})
             this.setData({
                 focus:response.data.msg
             })
@@ -49,7 +55,7 @@ Page({
             choose:true,
             focusIndex:e.detail.value
         })
-        let val = this.data.focus[e.detail.value].id
+        let val = this.data.focus[e.detail.value].domain
         if(val == 0){
             val= ''
         }
@@ -60,14 +66,21 @@ Page({
         http.request(api.getTeachers,'POST',{'domain':val}).then((response)=>{
             if(response.data.code == 1 ){  
                 this.setData({
-                    list:response.data.msg
+                    list:response.data.msg.list
                 })
             }
         }).catch(()=>{})
     },
-    detailName:function(){
+    detailName:function(e){
         wx.navigateTo({
-          url: '../teachers/teachers',
+          url: '../teachers/teachers?id='+e.currentTarget.dataset.id,
         })
-    }
+    },
+    onShareAppMessage: function () {
+      return {
+          title: '我在长江云，两会帮你问',
+          path: '/pages/index/index',
+          imageUrl:'../../images/share_img.png'
+      }
+  }
 })
